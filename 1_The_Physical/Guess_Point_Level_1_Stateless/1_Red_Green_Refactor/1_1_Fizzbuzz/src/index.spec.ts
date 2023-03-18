@@ -12,4 +12,10 @@ describe('fizzbuzz tests', () => {
       expect(fizzBuzz(25)).toBe('Buzz');
     });
   });
+
+  describe('when number is multiple of 3 and 5', () => {
+    it("should return 'FizzBuzz'", () => {
+      expect(fizzBuzz(15)).toBe('FizzBuzz');
+    });
+  });
 });
