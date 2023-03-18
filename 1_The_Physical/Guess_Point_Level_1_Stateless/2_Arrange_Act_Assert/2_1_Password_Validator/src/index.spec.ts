@@ -21,5 +21,15 @@ describe('PasswordValidator tests', () => {
         expect(result).toBeTruthy();
       });
     });
+
+    describe('when password is has at least uppercase letter', () => {
+      it('should return true', () => {
+        const sut = new PasswordValidator();
+
+        const result = sut.validate('testPass3');
+
+        expect(result).toBeTruthy();
+      });
+    });
   });
 });

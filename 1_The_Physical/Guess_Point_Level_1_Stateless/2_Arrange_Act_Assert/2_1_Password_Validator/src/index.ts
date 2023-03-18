@@ -2,6 +2,7 @@ export class PasswordValidator {
   public validate(password: string) {
     const isCorrectLength = this.validateLength(password);
     const hasDigit = this.validateDigit(password);
+    const hasUpperCaseLetter = password !== password.toLowerCase();
 
     return isCorrectLength && hasDigit;
   }
