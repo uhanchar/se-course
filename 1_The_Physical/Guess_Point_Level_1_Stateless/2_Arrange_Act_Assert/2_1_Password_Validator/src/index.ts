@@ -3,6 +3,12 @@ type ValidationResult = {
   errors: string[];
 };
 
+type ErrorParams = {
+  passwordLengthError: boolean;
+  passwordDigitError: boolean;
+  passwordUppercaseLetterError: boolean;
+};
+
 export class PasswordValidator {
   public validate(password: string): ValidationResult {
     const isCorrectLength = this.validateLength(password);
@@ -11,7 +17,11 @@ export class PasswordValidator {
 
     return {
       result: isCorrectLength && hasDigit && hasUpperCaseLetter,
-      errors: [],
+      errors: this.formatErrorMessages({
+        passwordLengthError: !isCorrectLength,
+        passwordDigitError: !hasDigit,
+        passwordUppercaseLetterError: !hasUpperCaseLetter,
+      }),
     };
   }
 
@@ -25,5 +35,14 @@ export class PasswordValidator {
 
   private validateUppercaseLetter(password: string): boolean {
     return password !== password.toLowerCase();
+  }
+
+  private formatErrorMessages(params: ErrorParams): string[] {
+    const { passwordLengthError } = params;
+    const passwordLengthErrorMessage = passwordLengthError
+      ? 'InvalidPasswordLengthError'
+      : '';
+
+    return [passwordLengthErrorMessage].filter((error: string) => error);
   }
 }
