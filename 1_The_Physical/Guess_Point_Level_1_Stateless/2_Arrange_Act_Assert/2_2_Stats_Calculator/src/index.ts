@@ -6,13 +6,15 @@ type Result = {
 
 export class StatsCalculator {
   public calculate(input: Params): Result {
-    const maxNumber = input.reduce(
+    return {
+      maxNumber: this.findMaxNumber(input),
+    };
+  }
+
+  private findMaxNumber(input: number[]): number {
+    return input.reduce(
       (result, value) => (value > result ? value : result),
       -Infinity,
     );
-
-    return {
-      maxNumber,
-    };
   }
 }
