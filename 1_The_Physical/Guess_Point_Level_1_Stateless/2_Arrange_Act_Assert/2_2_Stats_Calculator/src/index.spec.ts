@@ -10,4 +10,12 @@ describe('StatsCalculator tests', () => {
 
     expect(maxNumber).toBe(53);
   });
+
+  it('should return min number', () => {
+    const sut = new StatsCalculator();
+
+    const { minNumber } = sut.calculate(testInput);
+
+    expect(minNumber).toBe(-8);
+  });
 });
