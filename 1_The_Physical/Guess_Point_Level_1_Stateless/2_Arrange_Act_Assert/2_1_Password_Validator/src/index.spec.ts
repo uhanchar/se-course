@@ -67,5 +67,19 @@ describe('PasswordValidator tests', () => {
         expect(validation.errors[0]).toBe('DigitMissingError');
       });
     });
+
+    describe('when uppercase letter is missing', () => {
+      it('should return false', () => {
+        const validation = sut.validate('tear1');
+
+        expect(validation.result).toBeFalsy();
+      });
+
+      it('should return InvalidPasswordLengthError message', () => {
+        const validation = sut.validate('tear1');
+
+        expect(validation.errors[0]).toBe('UppercaseLetterMissingError');
+      });
+    });
   });
 });

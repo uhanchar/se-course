@@ -38,16 +38,25 @@ export class PasswordValidator {
   }
 
   private formatErrorMessages(params: ErrorParams): string[] {
-    const { passwordLengthError, passwordDigitError } = params;
+    const {
+      passwordLengthError,
+      passwordDigitError,
+      passwordUppercaseLetterError,
+    } = params;
     const passwordLengthErrorMessage = passwordLengthError
       ? 'InvalidPasswordLengthError'
       : '';
     const passwordDigitErrorMessage = passwordDigitError
       ? 'DigitMissingError'
       : '';
+    const passwordUppercaseLetterErrorMessage = passwordUppercaseLetterError
+      ? 'UppercaseLetterMissingError'
+      : '';
 
-    return [passwordLengthErrorMessage, passwordDigitErrorMessage].filter(
-      (error: string) => error,
-    );
+    return [
+      passwordLengthErrorMessage,
+      passwordDigitErrorMessage,
+      passwordUppercaseLetterErrorMessage,
+    ].filter((error: string) => error);
   }
 }
