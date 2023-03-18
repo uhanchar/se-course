@@ -1,10 +1,18 @@
+type ValidationResult = {
+  result: boolean;
+  errors: string[];
+};
+
 export class PasswordValidator {
-  public validate(password: string) {
+  public validate(password: string): ValidationResult {
     const isCorrectLength = this.validateLength(password);
     const hasDigit = this.validateDigit(password);
     const hasUpperCaseLetter = this.validateUppercaseLetter(password);
 
-    return isCorrectLength && hasDigit && hasUpperCaseLetter;
+    return {
+      result: isCorrectLength && hasDigit && hasUpperCaseLetter,
+      errors: [],
+    };
   }
 
   private validateLength(password: string): boolean {
