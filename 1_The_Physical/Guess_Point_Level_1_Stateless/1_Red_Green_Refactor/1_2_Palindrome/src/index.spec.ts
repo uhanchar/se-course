@@ -11,5 +11,11 @@ describe('palindrome checker tests', () => {
         expect(isPalindrome('Bob')).toBeTruthy();
       });
     });
+
+    describe('when input with different blank spaces', () => {
+      it('should return true', () => {
+        expect(isPalindrome('Never Odd or Even')).toBeTruthy();
+      });
+    });
   });
 })
