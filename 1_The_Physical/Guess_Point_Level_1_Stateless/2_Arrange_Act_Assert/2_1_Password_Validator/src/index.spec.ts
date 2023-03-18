@@ -11,5 +11,15 @@ describe('PasswordValidator tests', () => {
         expect(result).toBeTruthy();
       });
     });
+
+    describe('when password is has at least 1 digit', () => {
+      it('should return true', () => {
+        const sut = new PasswordValidator();
+
+        const result = sut.validate('testPass2');
+
+        expect(result).toBeTruthy();
+      });
+    });
   });
 });
