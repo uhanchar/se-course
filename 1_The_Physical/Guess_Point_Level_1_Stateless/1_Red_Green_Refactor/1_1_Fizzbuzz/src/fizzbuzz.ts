@@ -1,3 +1,7 @@
 export function fizzBuzz(input: number): string | number {
-  return 'Fizz';
+  if (input % 3 === 0) {
+    return 'Fizz';
+  } else {
+    return 'Buzz';
+  }
 }
