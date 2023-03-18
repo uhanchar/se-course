@@ -3,6 +3,10 @@ export function fizzBuzz(input: number): string | number {
     throw new Error('Input is less than 1');
   }
 
+  if (input > 100) {
+    throw new Error('Input is more than 100');
+  }
+
   if (input % 3 === 0 && input % 5 === 0) {
     return 'FizzBuzz';
   } else if (input % 3 === 0) {

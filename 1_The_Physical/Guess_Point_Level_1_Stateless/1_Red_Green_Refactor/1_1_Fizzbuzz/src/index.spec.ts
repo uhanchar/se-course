@@ -7,6 +7,12 @@ describe('fizzbuzz tests', () => {
         expect(() => fizzBuzz(-1)).toThrow('Input is less than 1');
       });
     });
+
+    describe('when number is more than 100', () => {
+      it("should throw an error", () => {
+        expect(() => fizzBuzz(140)).toThrow('Input is more than 100');
+      });
+    });
   });
 
   describe('when number is valid', () => {
