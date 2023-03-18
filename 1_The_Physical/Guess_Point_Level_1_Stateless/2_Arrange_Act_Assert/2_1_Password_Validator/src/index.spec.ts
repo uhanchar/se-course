@@ -53,5 +53,19 @@ describe('PasswordValidator tests', () => {
         expect(validation.errors[0]).toBe('InvalidPasswordLengthError');
       });
     });
+
+    describe('when digit is missing', () => {
+      it('should return false', () => {
+        const validation = sut.validate('tearP');
+
+        expect(validation.result).toBeFalsy();
+      });
+
+      it('should return InvalidPasswordLengthError message', () => {
+        const validation = sut.validate('tearP');
+
+        expect(validation.errors[0]).toBe('DigitMissingError');
+      });
+    });
   });
 });

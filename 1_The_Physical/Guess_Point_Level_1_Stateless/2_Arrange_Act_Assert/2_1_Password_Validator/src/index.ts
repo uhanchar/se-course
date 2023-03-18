@@ -26,7 +26,7 @@ export class PasswordValidator {
   }
 
   private validateLength(password: string): boolean {
-    return password.length > 5 && password.length < 16;
+    return password.length >= 5 && password.length <= 15;
   }
 
   private validateDigit(password: string): boolean {
@@ -38,11 +38,16 @@ export class PasswordValidator {
   }
 
   private formatErrorMessages(params: ErrorParams): string[] {
-    const { passwordLengthError } = params;
+    const { passwordLengthError, passwordDigitError } = params;
     const passwordLengthErrorMessage = passwordLengthError
       ? 'InvalidPasswordLengthError'
       : '';
+    const passwordDigitErrorMessage = passwordDigitError
+      ? 'DigitMissingError'
+      : '';
 
-    return [passwordLengthErrorMessage].filter((error: string) => error);
+    return [passwordLengthErrorMessage, passwordDigitErrorMessage].filter(
+      (error: string) => error,
+    );
   }
 }
