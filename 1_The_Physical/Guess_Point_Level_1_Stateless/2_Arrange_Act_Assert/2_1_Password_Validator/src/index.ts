@@ -2,9 +2,9 @@ export class PasswordValidator {
   public validate(password: string) {
     const isCorrectLength = this.validateLength(password);
     const hasDigit = this.validateDigit(password);
-    const hasUpperCaseLetter = password !== password.toLowerCase();
+    const hasUpperCaseLetter = this.validateUppercaseLetter(password);
 
-    return isCorrectLength && hasDigit;
+    return isCorrectLength && hasDigit && hasUpperCaseLetter;
   }
 
   private validateLength(password: string): boolean {
@@ -13,5 +13,9 @@ export class PasswordValidator {
 
   private validateDigit(password: string): boolean {
     return /\d/.test(password);
+  }
+
+  private validateUppercaseLetter(password: string): boolean {
+    return password !== password.toLowerCase();
   }
 }
