@@ -18,4 +18,12 @@ describe('StatsCalculator tests', () => {
 
     expect(minNumber).toBe(-8);
   });
+
+  it('should return items number', () => {
+    const sut = new StatsCalculator();
+
+    const { itemsLength } = sut.calculate(testInput);
+
+    expect(itemsLength).toBe(6);
+  });
 });

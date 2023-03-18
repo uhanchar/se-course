@@ -3,6 +3,7 @@ type Params = number[];
 type Result = {
   maxNumber: number;
   minNumber: number;
+  itemsLength: number;
 };
 
 export class StatsCalculator {
@@ -10,6 +11,7 @@ export class StatsCalculator {
     return {
       maxNumber: this.findMaxNumber(input),
       minNumber: this.findMinNumber(input),
+      itemsLength: this.findItemsLength(input),
     };
   }
 
@@ -25,5 +27,9 @@ export class StatsCalculator {
       (result, value) => (value < result ? value : result),
       Infinity,
     );
+  }
+
+  private findItemsLength(input: number[]): number {
+    return input.length;
   }
 }
