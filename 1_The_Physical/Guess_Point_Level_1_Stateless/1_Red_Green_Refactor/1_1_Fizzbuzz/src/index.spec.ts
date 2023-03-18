@@ -18,4 +18,10 @@ describe('fizzbuzz tests', () => {
       expect(fizzBuzz(15)).toBe('FizzBuzz');
     });
   });
+
+  describe('when number is not multiple of 3 or 5', () => {
+    it('should return number', () => {
+      expect(fizzBuzz(16)).toBe('16');
+    });
+  });
 });

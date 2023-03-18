@@ -3,7 +3,9 @@ export function fizzBuzz(input: number): string | number {
     return 'FizzBuzz';
   } else if (input % 3 === 0) {
     return 'Fizz';
-  } else {
+  } else if (input % 5 === 0) {
     return 'Buzz';
+  } else {
+    return input.toString();
   }
 }
