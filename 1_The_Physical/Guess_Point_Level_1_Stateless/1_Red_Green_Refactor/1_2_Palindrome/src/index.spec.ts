@@ -18,4 +18,10 @@ describe('palindrome checker tests', () => {
       });
     });
   });
+
+  describe('when is not palindrome', () => {
+    it('should return false', () => {
+      expect(isPalindrome('bill')).toBeFalsy();
+    });
+  });
 })
