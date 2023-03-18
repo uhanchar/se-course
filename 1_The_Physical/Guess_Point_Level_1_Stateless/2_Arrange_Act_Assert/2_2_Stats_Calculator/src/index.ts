@@ -4,6 +4,7 @@ type Result = {
   maxNumber: number;
   minNumber: number;
   itemsLength: number;
+  averageNumber: number;
 };
 
 export class StatsCalculator {
@@ -12,6 +13,7 @@ export class StatsCalculator {
       maxNumber: this.findMaxNumber(input),
       minNumber: this.findMinNumber(input),
       itemsLength: this.findItemsLength(input),
+      averageNumber: this.findAverageNumber(input),
     };
   }
 
@@ -31,5 +33,9 @@ export class StatsCalculator {
 
   private findItemsLength(input: number[]): number {
     return input.length;
+  }
+
+  private findAverageNumber(input: number[]): number {
+    return +(input.reduce((result, value) => result + value, 0) / input.length).toFixed(12);
   }
 }

@@ -26,4 +26,12 @@ describe('StatsCalculator tests', () => {
 
     expect(itemsLength).toBe(6);
   });
+
+  it('should return average number', () => {
+    const sut = new StatsCalculator();
+
+    const { averageNumber } = sut.calculate(testInput);
+
+    expect(averageNumber).toBe(18.666666666667);
+  });
 });
