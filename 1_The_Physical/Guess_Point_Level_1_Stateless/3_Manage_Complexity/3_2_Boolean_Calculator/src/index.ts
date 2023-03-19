@@ -15,17 +15,21 @@ export class BooleanCalculator {
       throw new Error('Not valid input');
     }
 
-    return input.split(/[()]+/).some((part) => {
-      return this.parseInput(part, Operator.OR).some((chunk) => {
-        return this.transformValuesToExpression(
-          this.parseInput(chunk, Operator.AND),
-        );
-      });
+    return this.parseInput(input, /[()]+/)
+      .some((part) => {
+        return this.parseInput(part, Operator.OR)
+          .some((chunk) => {
+            return this.transformValuesToExpression(
+              this.parseInput(chunk, Operator.AND),
+            );
+        });
     });
   }
 
-  private parseInput(input: string, operator: Operator) {
-    return input.split(` ${operator} `);
+  private parseInput(input: string, operator: Operator | RegExp) {
+    const separator = operator instanceof RegExp ? operator : ` ${operator} `;
+
+    return input.split(separator);
   }
 
   private transformValuesToExpression(values: string[]): boolean {
