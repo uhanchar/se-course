@@ -3,5 +3,7 @@ export class BooleanCalculator {
     if (!input) {
       throw new Error('Not valid input');
     }
+
+    return true;
   }
 }

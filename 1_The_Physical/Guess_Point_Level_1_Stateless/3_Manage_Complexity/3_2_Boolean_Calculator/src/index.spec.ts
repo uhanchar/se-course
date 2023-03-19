@@ -8,4 +8,16 @@ describe('BooleanCalculator tests', () => {
       expect(() => sut.calculate('')).toThrow('Not valid input');
     });
   });
+
+  describe('when single value', () => {
+    describe('when TRUE', () => {
+      it('should return true', () => {
+        const sut = new BooleanCalculator();
+
+        const result = sut.calculate('TRUE');
+
+        expect(result).toBeTruthy();
+      });
+    });
+  });
 });
