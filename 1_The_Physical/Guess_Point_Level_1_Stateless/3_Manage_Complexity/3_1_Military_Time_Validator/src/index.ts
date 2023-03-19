@@ -2,10 +2,14 @@ const getTime = (input: string, separator: string): string[] => {
   return input.split(separator);
 };
 
-const isTimeValid = (time: string[]): boolean => {
+const isTimeCorrect = (time: string[]): boolean => {
   const [hours, minutes] = time;
 
   return +hours < 24 && +minutes < 59;
+};
+
+const isTimeValid = (startValue: string, endValue: string): boolean => {
+  return startValue < endValue;
 };
 
 export const isMilitaryTime = (input: string): boolean => {
@@ -22,8 +26,9 @@ export const isMilitaryTime = (input: string): boolean => {
     return false;
   }
 
-  const isStartTimeValid = isTimeValid(startTimeParsed);
-  const isEndTimeValid = isTimeValid(endTimeParsed);
+  const isStartTimeCorrect = isTimeCorrect(startTimeParsed);
+  const isEndTimeCorrect = isTimeCorrect(endTimeParsed);
+  const isHoursCorrect = isTimeValid(startTimeParsed[0], endTimeParsed[0]);
 
-  return isStartTimeValid && isEndTimeValid;
+  return isStartTimeCorrect && isEndTimeCorrect && isHoursCorrect;
 };

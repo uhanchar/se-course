@@ -14,4 +14,10 @@ describe('militaryTime validator tests', () => {
       expect(isMilitaryTime('04:23 - 14:45')).toBeTruthy();
     });
   });
+
+  describe('when time hours is not valid', () => {
+    it('should return false', () => {
+      expect(isMilitaryTime('19:23 - 14:45')).toBeFalsy();
+    });
+  });
 });
