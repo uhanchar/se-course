@@ -79,5 +79,35 @@ describe('BooleanCalculator tests', () => {
         });
       });
     });
+
+    describe('when OR and AND', () => {
+      describe('when at lease one TRUE', () => {
+        it('should return true', () => {
+          const result = sut.calculate('TRUE OR FALSE AND TRUE');
+
+          expect(result).toBeTruthy();
+        });
+      });
+    });
+
+    describe('when OR, AND and NOT', () => {
+      describe('when at lease one TRUE', () => {
+        it('should return true', () => {
+          const result = sut.calculate('TRUE OR FALSE AND NOT TRUE');
+
+          expect(result).toBeTruthy();
+        });
+      });
+    });
+
+    describe('when OR with NOT, AND and NOT', () => {
+      describe('when at lease one TRUE', () => {
+        it('should return true', () => {
+          const result = sut.calculate('NOT TRUE OR FALSE AND TRUE');
+
+          expect(result).toBeFalsy();
+        });
+      });
+    });
   });
 });

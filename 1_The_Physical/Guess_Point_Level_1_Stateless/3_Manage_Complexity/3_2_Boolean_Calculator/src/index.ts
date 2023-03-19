@@ -12,12 +12,11 @@ export class BooleanCalculator {
 
     const orChunks: string[] = this.parseInput(input, Operator.OR);
 
-    return orChunks.reduce((result, chunk) => {
-      return (
-        result ||
-        this.transformValuesToExpression(this.parseInput(chunk, Operator.AND))
+    return orChunks.some((chunk) => {
+      return this.transformValuesToExpression(
+        this.parseInput(chunk, Operator.AND),
       );
-    }, false);
+    });
   }
 
   private parseInput(input: string, operator: Operator) {
