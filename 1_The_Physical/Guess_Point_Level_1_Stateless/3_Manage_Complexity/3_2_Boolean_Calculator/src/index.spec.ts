@@ -29,5 +29,15 @@ describe('BooleanCalculator tests', () => {
         expect(result).toBeFalsy();
       });
     });
+
+    describe('when NOT provided', () => {
+      it('should return opposite value', () => {
+        const sut = new BooleanCalculator();
+
+        const result = sut.calculate('NOT FALSE');
+
+        expect(result).toBeTruthy();
+      });
+    });
   });
 });

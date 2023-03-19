@@ -4,6 +4,10 @@ export class BooleanCalculator {
       throw new Error('Not valid input');
     }
 
+    if (input.includes('NOT')) {
+      return !(input === 'TRUE');
+    }
+
     return input === 'TRUE';
   }
 }
