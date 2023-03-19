@@ -8,8 +8,12 @@ const isTimeCorrect = (time: string[]): boolean => {
   return +hours < 24 && +minutes < 59;
 };
 
-const isTimeValid = (startValue: string, endValue: string): boolean => {
-  return startValue < endValue;
+const validateTime = (startTime: string[], endTime: string[]): boolean => {
+  const isHoursValid = startTime[0] <= endTime[0];
+  const isMinutesValid =
+    startTime[0] === endTime[0] ? startTime[1] < endTime[1] : true;
+
+  return isHoursValid && isMinutesValid;
 };
 
 export const isMilitaryTime = (input: string): boolean => {
@@ -28,7 +32,7 @@ export const isMilitaryTime = (input: string): boolean => {
 
   const isStartTimeCorrect = isTimeCorrect(startTimeParsed);
   const isEndTimeCorrect = isTimeCorrect(endTimeParsed);
-  const isHoursCorrect = isTimeValid(startTimeParsed[0], endTimeParsed[0]);
+  const isTimeValid = validateTime(startTimeParsed, endTimeParsed);
 
-  return isStartTimeCorrect && isEndTimeCorrect && isHoursCorrect;
+  return isStartTimeCorrect && isEndTimeCorrect && isTimeValid;
 };
