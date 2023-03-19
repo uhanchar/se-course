@@ -10,12 +10,12 @@ export class BooleanCalculator {
       throw new Error('Not valid input');
     }
 
-    const orChunks: string[] = this.parseInput(input, Operator.OR);
-
-    return orChunks.some((chunk) => {
-      return this.transformValuesToExpression(
-        this.parseInput(chunk, Operator.AND),
-      );
+    return input.split(/[()]+/).some((part) => {
+      return this.parseInput(part, Operator.OR).some((chunk) => {
+        return this.transformValuesToExpression(
+          this.parseInput(chunk, Operator.AND),
+        );
+      });
     });
   }
 
@@ -24,10 +24,9 @@ export class BooleanCalculator {
   }
 
   private transformValuesToExpression(values: string[]): boolean {
-    return values.reduce(
-      (expression, value) => expression && this.checkNegation(value),
-      true,
-    );
+    return values.reduce((expression, value) => {
+      return expression && this.checkNegation(value);
+    }, true);
   }
 
   private checkNegation(value: string): boolean {

@@ -110,4 +110,18 @@ describe('BooleanCalculator tests', () => {
       });
     });
   });
+
+  describe('when parenthesis', () => {
+    it('should return true', () => {
+      const result = sut.calculate('(TRUE AND TRUE) AND NOT FALSE');
+
+      expect(result).toBeTruthy();
+    });
+
+    it('should return false', () => {
+      const result = sut.calculate('(TRUE AND FALSE) AND FALSE');
+
+      expect(result).toBeFalsy();
+    });
+  });
 });
