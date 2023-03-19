@@ -4,6 +4,11 @@ enum Operator {
   NOT = 'NOT',
 }
 
+enum Operand {
+  TRUE = 'TRUE',
+  FALSE = 'FALSE',
+}
+
 export class BooleanCalculator {
   public calculate(input: string) {
     if (!input) {
@@ -31,7 +36,7 @@ export class BooleanCalculator {
 
   private checkNegation(value: string): boolean {
     return value.includes(Operator.NOT)
-      ? !(value.replace('NOT ', '') === 'TRUE')
-      : value === 'TRUE';
+      ? !(value.replace('NOT ', '') === Operand.TRUE)
+      : value === Operand.TRUE;
   }
 }
