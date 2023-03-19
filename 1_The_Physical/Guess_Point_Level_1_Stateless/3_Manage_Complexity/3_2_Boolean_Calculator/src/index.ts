@@ -12,13 +12,10 @@ export class BooleanCalculator {
   }
 
   private transformValuesToExpression(values: string[]): boolean {
-    let result = true;
-
-    for (let i = 0; i < values.length; i++) {
-      result = result && this.checkNegation(values[i]);
-    }
-
-    return result;
+    return values.reduce(
+      (expression, value) => expression && this.checkNegation(value),
+      true,
+    );
   }
 
   private checkNegation(value: string): boolean {
