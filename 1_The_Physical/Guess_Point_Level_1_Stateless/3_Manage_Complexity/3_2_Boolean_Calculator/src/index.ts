@@ -8,8 +8,15 @@ export class BooleanCalculator {
       return !(input === 'TRUE');
     }
 
+    return this.transformValuesToExpression(this.parseInput(input));
+  }
+
+  private parseInput(input: string) {
+    return input.split(' AND ');
+  }
+
+  private transformValuesToExpression(values: string[]): boolean {
     let result = true;
-    const values = input.split(' AND ');
 
     for (let i = 0; i < values.length; i++) {
       result = result && values[i] === 'TRUE';
