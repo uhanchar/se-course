@@ -68,4 +68,16 @@ describe('BooleanCalculator tests', () => {
       });
     });
   });
+
+  describe('when OR provided', () => {
+    describe('when OR only', () => {
+      describe('when at lease one TRUE', () => {
+        it('should return true', () => {
+          const result = sut.calculate('TRUE OR FALSE');
+
+          expect(result).toBeTruthy();
+        });
+      });
+    });
+  });
 });
