@@ -19,5 +19,15 @@ describe('BooleanCalculator tests', () => {
         expect(result).toBeTruthy();
       });
     });
+
+    describe('when FALSE', () => {
+      it('should return false', () => {
+        const sut = new BooleanCalculator();
+
+        const result = sut.calculate('FALSE');
+
+        expect(result).toBeFalsy();
+      });
+    });
   });
 });

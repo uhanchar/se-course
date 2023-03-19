@@ -4,6 +4,6 @@ export class BooleanCalculator {
       throw new Error('Not valid input');
     }
 
-    return true;
+    return input === 'TRUE';
   }
 }
