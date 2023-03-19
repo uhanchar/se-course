@@ -4,10 +4,6 @@ export class BooleanCalculator {
       throw new Error('Not valid input');
     }
 
-    if (input.includes('NOT')) {
-      return !(input === 'TRUE');
-    }
-
     return this.transformValuesToExpression(this.parseInput(input));
   }
 
@@ -19,9 +15,15 @@ export class BooleanCalculator {
     let result = true;
 
     for (let i = 0; i < values.length; i++) {
-      result = result && values[i] === 'TRUE';
+      result = result && this.checkNegation(values[i]);
     }
 
     return result;
+  }
+
+  private checkNegation(value: string): boolean {
+    return value.includes('NOT')
+      ? !(value.replace('NOT ', '') === 'TRUE')
+      : value === 'TRUE';
   }
 }

@@ -61,6 +61,18 @@ describe('BooleanCalculator tests', () => {
             expect(result).toBeFalsy();
           });
         });
+
+        describe('when negation (NOT) provided', () => {
+          describe('when all parts TRUE with NOT in ONE', () => {
+            it('should return false', () => {
+              const sut = new BooleanCalculator();
+
+              const result = sut.calculate('TRUE AND TRUE AND NOT TRUE');
+
+              expect(result).toBeFalsy();
+            });
+          });
+        });
       });
     });
   });
