@@ -36,6 +36,8 @@ export class StatsCalculator {
   }
 
   private findAverageNumber(input: number[]): number {
-    return +(input.reduce((result, value) => result + value, 0) / input.length).toFixed(12);
+    return +(
+      input.reduce((result, value) => result + value, 0) / input.length
+    ).toFixed(12);
   }
 }
