@@ -5,7 +5,9 @@ const getTime = (input: string, separator: string): string[] => {
 const isTimeCorrect = (time: string[]): boolean => {
   const [hours, minutes] = time;
 
-  return +hours < 24 && +minutes < 59;
+  return (
+    hours.length === 2 && minutes.length === 2 && +hours < 24 && +minutes < 59
+  );
 };
 
 const validateTime = (startTime: string[], endTime: string[]): boolean => {

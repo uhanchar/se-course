@@ -24,4 +24,10 @@ describe('militaryTime validator tests', () => {
       expect(isMilitaryTime('14:48 - 14:45')).toBeFalsy();
     });
   });
+
+  describe('when input with not proper time length', () => {
+    it('should return false', () => {
+      expect(isMilitaryTime('02029:303002 - 3929:22')).toBeFalsy();
+    });
+  });
 });
