@@ -24,6 +24,12 @@ describe('militaryTime validator tests', () => {
           expect(isMilitaryTime('13:46 - 34:45')).toBeFalsy();
         });
       });
+
+      describe('when start time or end time minutes are out of range', () => {
+        it('should return false', () => {
+          expect(isMilitaryTime('13:87 - 12:45')).toBeFalsy();
+        });
+      });
     });
   });
 
