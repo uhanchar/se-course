@@ -13,5 +13,5 @@ export const isMilitaryTime = (input: string): boolean => {
     return false;
   }
 
-  return true;
+  return +startTime.split(':')[0] <= 24 && +endTime.split(':')[0] <= 24;
 };
