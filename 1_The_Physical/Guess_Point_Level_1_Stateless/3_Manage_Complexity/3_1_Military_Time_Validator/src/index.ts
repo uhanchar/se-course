@@ -9,5 +9,9 @@ export const isMilitaryTime = (input: string): boolean => {
     return false;
   }
 
+  if (startTime.split(':')?.length !== 2 || endTime.split(':')?.length !== 2) {
+    return false;
+  }
+
   return true;
 };

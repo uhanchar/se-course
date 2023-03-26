@@ -12,6 +12,12 @@ describe('militaryTime validator tests', () => {
           expect(isMilitaryTime('- 14:45')).toBeFalsy();
         });
       });
+
+      describe('when start time or end time are in incorrect format', () => {
+        it('should return false', () => {
+          expect(isMilitaryTime('13- 14')).toBeFalsy();
+        });
+      });
     });
   });
 
