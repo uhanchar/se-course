@@ -36,6 +36,12 @@ describe('militaryTime validator tests', () => {
           expect(isMilitaryTime('19:23 - 14:45')).toBeFalsy();
         });
       });
+
+      describe('when hours are the same and start time minutes are later than end time minutes', () => {
+        it('should return false', () => {
+          expect(isMilitaryTime('14:48 - 14:45')).toBeFalsy();
+        });
+      });
     });
   });
 

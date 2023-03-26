@@ -29,6 +29,8 @@ export const isMilitaryTime = (input: string): boolean => {
   const isStartTimeCorrect = isTimeCorrect(startTimeParsed);
   const isEndTimeCorrect = isTimeCorrect(endTimeParsed);
   const isHoursCorrect = startTimeParsed[0] <= endTimeParsed[0];
+  const isMinutesValid =
+    startTimeParsed[0] === endTimeParsed[0] ? startTimeParsed[1] < endTimeParsed[1] : true;
 
-  return isStartTimeCorrect && isEndTimeCorrect && isHoursCorrect;
+  return isStartTimeCorrect && isEndTimeCorrect && isHoursCorrect && isMinutesValid;
 };
