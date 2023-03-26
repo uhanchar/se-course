@@ -30,6 +30,12 @@ describe('militaryTime validator tests', () => {
           expect(isMilitaryTime('13:87 - 12:45')).toBeFalsy();
         });
       });
+
+      describe('when start time hours are later than end time hours', () => {
+        it('should return false', () => {
+          expect(isMilitaryTime('19:23 - 14:45')).toBeFalsy();
+        });
+      });
     });
   });
 
