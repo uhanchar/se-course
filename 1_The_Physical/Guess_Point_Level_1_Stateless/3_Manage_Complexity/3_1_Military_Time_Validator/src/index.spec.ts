@@ -1,5 +1,9 @@
+import { isMilitaryTime } from './index';
 
-describe('military time validator', () => {
-
-
-})
+describe('militaryTime validator tests', () => {
+  describe('when input is not correct ', () => {
+    it('should return false', () => {
+      expect(isMilitaryTime('')).toBeFalsy();
+    });
+  });
+});
