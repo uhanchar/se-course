@@ -1,3 +1,7 @@
 export const isMilitaryTime = (input: string): boolean => {
-  return false;
+  if (!input) {
+    return false;
+  }
+
+  return true;
 };

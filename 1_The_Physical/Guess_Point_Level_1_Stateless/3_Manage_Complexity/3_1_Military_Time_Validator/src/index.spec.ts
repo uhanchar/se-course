@@ -6,4 +6,10 @@ describe('militaryTime validator tests', () => {
       expect(isMilitaryTime('')).toBeFalsy();
     });
   });
+
+  describe('when input is correct', () => {
+    it('should return true', () => {
+      expect(isMilitaryTime('04:23 - 14:45')).toBeTruthy();
+    });
+  });
 });
