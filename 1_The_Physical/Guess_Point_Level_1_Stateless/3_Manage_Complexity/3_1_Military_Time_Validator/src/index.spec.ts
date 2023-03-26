@@ -1,9 +1,17 @@
 import { isMilitaryTime } from './index';
 
 describe('militaryTime validator tests', () => {
-  describe('when input is not correct ', () => {
+  describe('when input is empty ', () => {
     it('should return false', () => {
       expect(isMilitaryTime('')).toBeFalsy();
+    });
+
+    describe('when input format is not correct', () => {
+      describe('when start time or end time are empty', () => {
+        it('should return false', () => {
+          expect(isMilitaryTime('- 14:45')).toBeFalsy();
+        });
+      });
     });
   });
 

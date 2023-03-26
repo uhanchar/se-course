@@ -3,5 +3,11 @@ export const isMilitaryTime = (input: string): boolean => {
     return false;
   }
 
+  const [startTime, endTime] = input.split(' - ');
+
+  if (!startTime?.length || !endTime?.length) {
+    return false;
+  }
+
   return true;
 };
